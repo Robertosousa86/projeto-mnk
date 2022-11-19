@@ -1,0 +1,25 @@
+{
+  "name": "projeto-mnk",
+  "version": "1.0.0",
+  "description": "Uma API para controle estoque de auto-mecânica",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Robertosousa86/projeto-mnk.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "TypeOrm",
+    "MySQL",
+    "API"
+  ],
+  "author": "Roberto Sousa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Robertosousa86/projeto-mnk/issues"
+  },
+  "homepage": "https://github.com/Robertosousa86/projeto-mnk#readme"
+}
