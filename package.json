@@ -6,6 +6,9 @@
   "scripts": {
     "start": "ts-node src/index.ts",
     "dev": "nodemon",
+    "typeorm": "typeorm-ts-node-commonjs",
+    "migration:up": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:run -d src/config/data-source.ts",
+    "migration:down": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:revert -d src/config/data-source.ts",
     "test": "jest --watch"
   },
   "repository": {
