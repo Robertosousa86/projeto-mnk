@@ -8,9 +8,9 @@ export class Employee1669075905477 implements MigrationInterface {
         columns: [
           {
             name: 'employee_id',
-            type: 'uuid',
-            isUnique: true,
+            type: 'varchar',
             isPrimary: true,
+            generationStrategy: 'uuid',
           },
           {
             name: 'name',
