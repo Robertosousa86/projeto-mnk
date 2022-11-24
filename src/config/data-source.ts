@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const appDataSource = new DataSource({
+export const appDataSource = new DataSource({
   type: 'mysql',
   host: process.env.DATABASE_HOST,
   port: +process.env.DATABASE_PORT,
@@ -24,5 +24,3 @@ appDataSource
   .catch((err) => {
     console.error('Error during Data Source initialization', err);
   });
-
-export default appDataSource;
