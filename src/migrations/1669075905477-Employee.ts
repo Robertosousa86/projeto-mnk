@@ -39,7 +39,8 @@ export class Employee1669075905477 implements MigrationInterface {
             default: 'now()',
           },
         ],
-      })
+      }),
+      true
     );
   }
 
