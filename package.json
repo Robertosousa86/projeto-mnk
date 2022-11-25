@@ -2,9 +2,9 @@
   "name": "projeto-mnk",
   "version": "1.0.0",
   "description": "Uma API para controle estoque de auto-mecânica",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "ts-node src/index.ts",
+    "start": "ts-node src/server.ts",
     "dev": "nodemon",
     "typeorm": "typeorm-ts-node-commonjs",
     "migration:up": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:run -d src/config/data-source.ts",
