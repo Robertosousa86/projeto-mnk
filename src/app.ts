@@ -1,11 +1,9 @@
 import express from 'express';
-import { routes } from './routes';
+import router from './routes';
 
 const app = express();
 
-export const setupApp = () => {
-  app.use(express.json());
-  app.use(routes);
+app.use(express.json());
+app.use(router);
 
-  return app;
-};
+export default app;
