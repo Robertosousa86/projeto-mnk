@@ -21,7 +21,11 @@ export class CreateEmployee {
 
     if (queryResult) return new Error('User name already exists.');
 
-    const employee = { name, user_name, password };
+    const hashing = (): string => {
+      return createHmac('sha256', password).update(password).digest('hex');
+    };
+
+    const employee = { name, user_name, password: hashing() };
 
     await repository.save(employee);
   }
