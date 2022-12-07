@@ -88,4 +88,12 @@ describe('Employee registration', () => {
 
     expect(result.body.message).toEqual('User name already exists.');
   });
+
+  it('Should be Hashes the password in the database.', async () => {
+    const repository = appDataSource.getRepository(Employee);
+
+    const queryResult = await repository.find();
+
+    expect(queryResult[0].password).not.toEqual(fakeEmployee.password);
+  });
 });
