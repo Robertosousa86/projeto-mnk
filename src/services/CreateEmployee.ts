@@ -9,7 +9,7 @@ export class CreateEmployee {
 
     const { name, user_name, password } = repository.create(employeeType);
 
-    if (!name) return new Error('User field is required.');
+    if (!name) return new Error('Name field is required.');
 
     if (!user_name) return new Error('User Name field is required.');
 
