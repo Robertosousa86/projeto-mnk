@@ -60,7 +60,7 @@ describe('Employee registration', () => {
       password: '123456',
     });
 
-    expect(result.body.message).toEqual('User field is required.');
+    expect(result.body.message).toEqual('Name field is required.');
   });
 
   it('Should be return "User Name field is required." when user_name field is empty.', async () => {
