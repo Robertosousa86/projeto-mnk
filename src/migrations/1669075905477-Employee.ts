@@ -18,7 +18,7 @@ export class Employee1669075905477 implements MigrationInterface {
             isNullable: false,
           },
           {
-            name: 'user_name',
+            name: 'cpf_employee',
             type: 'varchar',
             isUnique: true,
             isNullable: false,
