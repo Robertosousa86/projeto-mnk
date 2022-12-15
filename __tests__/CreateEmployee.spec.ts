@@ -17,7 +17,7 @@ afterAll(async () => {
 describe('Employee registration', () => {
   const fakeEmployee: EmployeeType = {
     name: 'Tica',
-    user_name: 'Tica',
+    cpf_employee: '12345678901',
     password: '123456',
   };
 
@@ -46,7 +46,7 @@ describe('Employee registration', () => {
   it('Should be return "400 bad request" when create request is invalid.', async () => {
     const result = await postEmployee({
       name: '',
-      user_name: '',
+      cpf_employee: '',
       password: '',
     });
 
@@ -56,37 +56,45 @@ describe('Employee registration', () => {
   it('Should be return "Name field is required." when user field is empty.', async () => {
     const result = await postEmployee({
       name: '',
-      user_name: 'Tica',
+      cpf_employee: '12345678901',
       password: '123456',
     });
 
     expect(result.body.message).toEqual('Name field is required.');
   });
 
-  it('Should be return "User Name field is required." when user_name field is empty.', async () => {
+  it('Should be return "CPF field is required." when CPF field is empty.', async () => {
     const result = await postEmployee({
       name: 'Tica',
-      user_name: '',
+      cpf_employee: '',
       password: '123456',
     });
 
-    expect(result.body.message).toBe('User Name field is required.');
+    expect(result.body.message).toBe('CPF field is required.');
   });
 
   it('Should be return "Password field is required." when password field is empty.', async () => {
     const result = await postEmployee({
       name: 'Tica',
-      user_name: 'Tica',
+      cpf_employee: '12345678901',
       password: '',
     });
 
     expect(result.body.message).toBe('Password field is required.');
   });
 
-  it('Should be return "User name already exists." when user name is already registered.', async () => {
+  it('Should be return "CPF already registered." when CPF is already registered.', async () => {
     const result = await postEmployee();
 
-    expect(result.body.message).toEqual('User name already exists.');
+    expect(result.body.message).toEqual('CPF already registered.');
+  });
+
+  it('Should be Hashes the CPF in the database.', async () => {
+    const repository = appDataSource.getRepository(Employee);
+
+    const queryResult = await repository.find();
+
+    expect(queryResult[0].cpf_employee).not.toEqual(fakeEmployee.cpf_employee);
   });
 
   it('Should be Hashes the password in the database.', async () => {
