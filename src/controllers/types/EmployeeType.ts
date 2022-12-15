@@ -1,5 +1,5 @@
 export type EmployeeType = {
   name: string;
-  user_name: string;
+  cpf_employee: string;
   password: string;
 };
