@@ -15,7 +15,7 @@ export class Employee {
   name: string;
 
   @Column({ unique: true })
-  user_name: string;
+  cpf_employee: string;
 
   @Column()
   password: string;
